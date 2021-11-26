@@ -8,4 +8,12 @@ p002 = sum $ filter even (takeWhile (<4000000) fibs)
   where
     fibs =  0 : 1 : zipWith (+) fibs (tail fibs)
 
+p003 :: Int
+p003 = maximum $ factorize 600851475143 2 []
+  where
+    factorize :: Int -> Int -> [Int] -> [Int]
+    factorize x p xs | x <= 1         = xs
+                     | x `mod` p == 0 = factorize (x `div` p) p (p:xs)
+                     | otherwise      = factorize x (p+1) xs
+
 main = print "Hello, world!"
