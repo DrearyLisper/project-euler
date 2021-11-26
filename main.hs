@@ -16,4 +16,11 @@ p003 = maximum $ factorize 600851475143 2 []
                      | x `mod` p == 0 = factorize (x `div` p) p (p:xs)
                      | otherwise      = factorize x (p+1) xs
 
+p004 :: Int
+p004 = maximum $ [ i*j | i <- [1..999], j <- [1..999], isPalindrom (i*j)]
+  where
+    isPalindrom :: Int -> Bool
+    isPalindrom x = reverse (show x) == (show x)
+
+
 main = print "Hello, world!"
