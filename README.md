@@ -47,3 +47,14 @@ Find the largest palindrome made from the product of two 3-digit numbers.
 *Main> p004
 906609
 ```
+
+## Problem 005
+
+2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
+
+What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
+
+``` haskell
+*Main> p005
+232792560
+```
