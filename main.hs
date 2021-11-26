@@ -39,6 +39,12 @@ p005 = product $ concat $ takeLastGroup
                      | x `mod` p == 0 = factorize p (p:xs) (x `div` p)
                      | otherwise      = factorize (p+1) xs x
 
+p006 :: Int
+p006 = b - a
+  where
+    a = sum $ map (^2) [1..100]
+    b = ((^2).sum) [1..100]
+
 
 
 main = print "Hello, world!"
