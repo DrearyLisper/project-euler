@@ -45,6 +45,18 @@ p006 = b - a
     a = sum $ map (^2) [1..100]
     b = ((^2).sum) [1..100]
 
+p007 = primes !! 10000
+  where
+    primes = genPrimes $ zip (repeat False) [2..]
 
+    genPrimes :: [(Bool, Int)] -> [Int]
+    genPrimes ((divisible, n):xs) | not divisible = n : genPrimes (zipWith combine xs (repeatTrue n))
+                                  | otherwise = genPrimes xs
 
-main = print "Hello, world!"
+    combine :: (Bool, Int) -> Bool -> (Bool, Int)
+    combine (divisible, n) flag = (divisible || flag, n)
+
+    repeatTrue :: Int -> [Bool]
+    repeatTrue n = (take (n-1) $ repeat False) ++ [True] ++ repeatTrue n
+
+main = print $ p007
