@@ -47,11 +47,12 @@ p006 = b - a
 
 p007 = primes !! 10000
   where
+    primes :: [Int]
     primes = genPrimes $ zip (repeat False) [2..]
 
     genPrimes :: [(Bool, Int)] -> [Int]
     genPrimes ((divisible, n):xs) | not divisible = n : genPrimes (zipWith combine xs (repeatTrue n))
-                                  | otherwise = genPrimes xs
+                              | otherwise = genPrimes xs
 
     combine :: (Bool, Int) -> Bool -> (Bool, Int)
     combine (divisible, n) flag = (divisible || flag, n)
