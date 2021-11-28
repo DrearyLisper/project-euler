@@ -77,4 +77,13 @@ p009 = head [product [a, b, c] | a <- [1..1000],
                                  let c = 1000 - a - b,
                                  a*a + b*b == c*c]
 
-main = print $ p009
+p010 = sum $ takeWhile (<2000000) primes
+  where
+    primes :: [Int]
+    primes = genPrimes [2..]
+
+    genPrimes :: [Int] -> [Int]
+    genPrimes (x:xs) = x : genPrimes [i | i <- xs, i `mod` x /= 0]
+
+
+main = print $ p010
